@@ -1,0 +1,79 @@
+.cubo, .cubo .cara
+{
+width: 200px;
+height: 200px;
+}
+
+.cubo .cara
+{
+	position: absolute;
+}
+
+.cubo
+{
+	margin: 100px auto;
+}
+
+
+/*CSS3 3D*/
+
+.cubo{
+	transform-style: preserve-3d;
+}
+
+.cubo{
+	transform-style: preserve-3d;
+	transform: perspective(700px) rotateX(-30deg) rotateY(-30deg);
+}
+
+.cubo .cara#derecha{
+   transform: rotateY(90deg);
+}
+
+/*mover la cara en el plano 3D (sobre el eje Z) con translateZ para posicionarlo.
+Lo moveremos 100px que es la mitad del ancho de nuestro cubo.*/
+
+.cubo .cara#derecha{
+transform: rotateY(90deg) translateZ(100px);; 
+}
+
+/*Cogemos la cara de cada cubo para rotarlas y darle color con background color.*/
+
+.cubo .cara#superior {
+    background-color: orange;
+    transform: rotateX(90deg) translateZ(100px);
+}
+.cubo .cara#frente {
+    background-color: red;
+    transform: translateZ(100px);
+}
+.cubo .cara#atras {
+    background-color: green;
+    transform: translateZ(-100px);
+}
+.cubo .cara#derecha {
+    background-color: blue;
+    transform: rotateY(90deg) translateZ(100px);
+}
+.cubo .cara#izquierda {
+    background-color: yellow;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+.cubo .cara#inferior {
+    background-color: fuchsia;
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+
+/*Con  la propiedad preserve-3d de transform-style aplicada al .cubo,
+ nos será posible rotar las caras con mucha facilidad.
+ Solo hace falta realizar una vuelta de 360° en X y Y con rotateX y rotateY respectivamente
+ con transform de la siguiente manera: */
+
+.cubo {
+  animation: rotate 2s infinite linear;
+}
+@keyframes rotate {
+    0% { transform: rotateX(   0deg ) rotateY(   0deg ); }
+  100% { transform: rotateX( 360deg ) rotateY( 360deg ); }
+}
